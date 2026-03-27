@@ -1,4 +1,9 @@
 package com.scaler.selfauthenticatinguserservicemar26.exceptions;
 
-public class InvalidTokenException {
+public class InvalidTokenException extends Exception {
+
+    public InvalidTokenException(String message) {
+        super(message);
+    }
+
 }
