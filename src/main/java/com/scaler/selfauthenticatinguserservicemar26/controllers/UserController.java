@@ -34,12 +34,19 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public TokenResponseDto login(@RequestBody LoginRequestDto request) throws PasswordMisMatchException {
+    public String login(@RequestBody LoginRequestDto request) throws PasswordMisMatchException {
 
+        /*
+        this piece of code was used to validateToken when Apache commons string token was used
+        Now, we will use JWT. Earlier this method was returning TokenResponseDto but we will return String JWT
         Token token = userSerivce.login(request.getEmail(), request.getPassword());
-
         return TokenResponseDto.from(token);
 
+         */
+
+        String jwtToken = userSerivce.login(request.getEmail(), request.getPassword());
+
+        return jwtToken;
 
     }
 
